@@ -13,10 +13,12 @@
 
 
 require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-core.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-carousel.php' );
 
 if ( ! function_exists( 'wp3sixty_load_core' ) ) {
 	function wp3sixty_load_core() {
 		Wp_3sixty_Core::getInstance();
+		new WP_3sixty_Carousel();
 	}
 	add_action( 'plugins_loaded', 'wp3sixty_load_core' );
 }

@@ -13,13 +13,13 @@ if ( ! class_exists( 'WP_3sixty_Carousel' ) ) {
 		 * WP_3sixty_Carousel constructor.
 		 */
 		public function __construct() {
-			add_action( '3sixty_do_carousel', array( $this, '_3sixty_do_carousel' ) );
+			add_action( 'davanagari_homepage_before_header', array( $this, '_davanagari_homepage_before_header' ) );
 		}
 
-		function _3sixty_do_carousel() {
+		function _davanagari_homepage_before_header() {
 			$feature_posts = new WP_Query( array(
 				'post_type'      => array( 'plugin', 'theme' ),
-				'posts_per_page' => '10',
+				'posts_per_page' => '5',
 				'cache_results'  => true,
 			) );
 			$feature_posts = $feature_posts->posts;

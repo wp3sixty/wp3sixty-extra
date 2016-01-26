@@ -14,6 +14,9 @@
 
 require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-core.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-carousel.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-metabox.php' );
+       
+
 
 if ( ! function_exists( 'wp3sixty_load_core' ) ) {
 	function wp3sixty_load_core() {

@@ -11,11 +11,13 @@
  * @package Wp3sixty-extra
  */
 
+if ( ! defined( 'WP3SIXTY_EXTRA_PATH' ) ) {
+	define( 'WP3SIXTY_EXTRA_PATH', plugin_dir_path( __FILE__ ) );
+}
 
-require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-core.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-carousel.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'include/class-wp-3sixty-metabox.php' );
-       
+require_once( WP3SIXTY_EXTRA_PATH . 'include/class-wp-3sixty-core.php' );
+require_once( WP3SIXTY_EXTRA_PATH . 'include/class-wp-3sixty-carousel.php' );
+require_once( WP3SIXTY_EXTRA_PATH . 'include/class-wp-3sixty-metabox.php' );
 
 
 if ( ! function_exists( 'wp3sixty_load_core' ) ) {
@@ -23,5 +25,6 @@ if ( ! function_exists( 'wp3sixty_load_core' ) ) {
 		Wp_3sixty_Core::getInstance();
 		new WP_3sixty_Carousel();
 	}
+
 	add_action( 'plugins_loaded', 'wp3sixty_load_core' );
 }

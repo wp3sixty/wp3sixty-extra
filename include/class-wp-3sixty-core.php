@@ -22,6 +22,9 @@ if ( ! class_exists( 'Wp_3sixty_Core' ) ) {
 		protected function __construct() {
 			add_action( 'init', array( $this, 'theme_cpt_register' ), 0 );
 			add_action( 'init', array( $this, 'plugin_cpt_register' ), 0 );
+
+			add_filter( 'template_include', array( $this, 'plugin_template' ), 99 );
+
 		}
 
 		// Register Custom Post Type
@@ -154,6 +157,18 @@ if ( ! class_exists( 'Wp_3sixty_Core' ) ) {
 		}
 
 		private function __wakeup() {
+		}
+
+		public function plugin_template( $template ) {
+			if ( is_singular( 'plugin' ) ) {
+				$new_template = locate_template( array( 'wp3sixty-template/plugin-template.php' ), true );
+				if ( '' != $new_template ) {
+					return $new_template;
+				} else {
+					return WP3SIXTY_EXTRA_PATH . 'template/plugin-template.php';
+				}
+			}
+			return $template;
 		}
 
 	}

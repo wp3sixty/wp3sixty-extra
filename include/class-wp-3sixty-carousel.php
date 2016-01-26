@@ -53,7 +53,7 @@ if ( ! class_exists( 'WP_3sixty_Carousel' ) ) {
 								<div class="carousel-extra-text">
 									<?php echo get_the_excerpt( $_post->ID ); ?>
 								</div>
-								<a class="button" href="<?php echo get_permalink( $_post->ID ); ?>">More</a>
+								<a class="btn btn-primary" href="<?php echo get_permalink( $_post->ID ); ?>">More</a>
 							</div>
 						</div>
 						<?php

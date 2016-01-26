@@ -44,17 +44,10 @@ if ( ! class_exists( 'WP_3sixty_Carousel' ) ) {
 					<?php
 					foreach ( $feature_posts as $_post ) { ?>
 						<div class="item <?php echo ( $flag ) ? 'active' : ''; ?>">
+						<a href="<?php echo get_permalink( $_post->ID ); ?>">
 							<?php
 							echo get_the_post_thumbnail( $_post->ID ); ?>
-							<div class="carousel-extra">
-								<div class="carousel-header">
-									<h1><?php echo get_the_title( $_post->ID ); ?></h1>
-								</div>
-								<div class="carousel-extra-text">
-									<?php echo get_the_excerpt( $_post->ID ); ?>
-								</div>
-								<a class="btn btn-primary" href="<?php echo get_permalink( $_post->ID ); ?>">More</a>
-							</div>
+							</a>
 						</div>
 						<?php
 						if ( $flag ) {

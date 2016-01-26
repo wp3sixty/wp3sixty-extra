@@ -44,9 +44,10 @@ if ( ! class_exists( 'WP_3sixty_Carousel' ) ) {
 					<?php
 					foreach ( $feature_posts as $_post ) { ?>
 						<div class="item <?php echo ( $flag ) ? 'active' : ''; ?>">
-						<a href="<?php echo esc_url( get_permalink( $_post->ID ) ); ?>" title='<?php echo esc_attr( get_the_title($_post->ID) ); ?>'>
-							<?php
-							echo get_the_post_thumbnail( $_post->ID ); ?>
+							<a href="<?php echo esc_url( get_permalink( $_post->ID ) ); ?>"
+							   title='<?php echo esc_attr( get_the_title( $_post->ID ) ); ?>'>
+								<?php
+								echo get_the_post_thumbnail( $_post->ID, ( wp_is_mobile() ) ? 'medium' : 'post-thumbnail' ); ?>
 							</a>
 						</div>
 						<?php
